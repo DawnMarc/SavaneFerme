@@ -12,20 +12,19 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import django_heroku
-
+import dj_database_url
 from django.utils.translation import ugettext_lazy as _
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIRS = os.path.join(BASE_DIR, 'templates')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -36,7 +35,7 @@ SECRET_KEY = 'b)4ewy!zdn6_vb0_qq7iqxv#ul87lm7#j&&cd7tbr2ib6!!6$1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -53,8 +52,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -137,14 +136,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL = '/orders'
 LOGIN_URL = 'login'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/orders/static/'
+
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
