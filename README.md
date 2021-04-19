@@ -2,9 +2,10 @@
 
 ## About this application
 
-Created by **DawnInc** some of the content in this project was provided by **_Inzamul Haque_**.
+Created by **OMICRON** 
 ##### Framework: Django 1.10.1
 ##### Language : Python 3.6
+##### Frontend : JavaScript, CSS & HTML
 
 
 ## Features
@@ -19,9 +20,9 @@ Created by **DawnInc** some of the content in this project was provided by **_In
 - Register and Manage Expenses
 - Register and Mange Inventory
 - Print Invoice
-- Easy interface
+- Simple interface
 
 
-### Contact me 
+### Contact 
 Twitter: @xxendiwala <br>
 Email: mxxendiwala@gmail.com
